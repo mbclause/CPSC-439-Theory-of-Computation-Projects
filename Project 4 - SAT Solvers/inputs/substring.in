@@ -1,0 +1,180 @@
+# {w : 1011 is a substring of w}
+
+# At least one state in each step
+Q0_0 Q1_0 Q2_0 Q3_0 Q4_0
+Q0_1 Q1_1 Q2_1 Q3_1 Q4_1
+Q0_2 Q1_2 Q2_2 Q3_2 Q4_2
+Q0_3 Q1_3 Q2_3 Q3_3 Q4_3
+Q0_4 Q1_4 Q2_4 Q3_4 Q4_4
+Q0_5 Q1_5 Q2_5 Q3_5 Q4_5
+Q0_6 Q1_6 Q2_6 Q3_6 Q4_6
+
+# No more than one state at step 0
+~Q0_0 ~Q1_0 
+~Q0_0 ~Q2_0 
+~Q0_0 ~Q3_0 
+~Q0_0 ~Q4_0 
+~Q1_0 ~Q2_0
+~Q1_0 ~Q3_0
+~Q1_0 ~Q4_0
+~Q2_0 ~Q3_0
+~Q2_0 ~Q4_0
+~Q3_0 ~Q4_0
+
+# No more than one state at step 1
+~Q0_1 ~Q1_1 
+~Q0_1 ~Q2_1 
+~Q0_1 ~Q3_1 
+~Q0_1 ~Q4_1 
+~Q1_1 ~Q2_1
+~Q1_1 ~Q3_1
+~Q1_1 ~Q4_1
+~Q2_1 ~Q3_1
+~Q2_1 ~Q4_1
+~Q3_1 ~Q4_1
+
+# No more than one state at step 2
+~Q0_2 ~Q1_2 
+~Q0_2 ~Q2_2 
+~Q0_2 ~Q3_2 
+~Q0_2 ~Q4_2 
+~Q1_2 ~Q2_2
+~Q1_2 ~Q3_2
+~Q1_2 ~Q4_2
+~Q2_2 ~Q3_2
+~Q2_2 ~Q4_2
+~Q3_2 ~Q4_2
+
+# No more than one state at step 3
+~Q0_3 ~Q1_3 
+~Q0_3 ~Q2_3 
+~Q0_3 ~Q3_3 
+~Q0_3 ~Q4_3 
+~Q1_3 ~Q2_3
+~Q1_3 ~Q3_3
+~Q1_3 ~Q4_3
+~Q2_3 ~Q3_3
+~Q2_3 ~Q4_3
+~Q3_3 ~Q4_3
+
+# No more than one state at step 4
+~Q0_4 ~Q1_4 
+~Q0_4 ~Q2_4 
+~Q0_4 ~Q3_4 
+~Q0_4 ~Q4_4 
+~Q1_4 ~Q2_4
+~Q1_4 ~Q3_4
+~Q1_4 ~Q4_4
+~Q2_4 ~Q3_4
+~Q2_4 ~Q4_4
+~Q3_4 ~Q4_4
+
+# No more than one state at step 5
+~Q0_5 ~Q1_5 
+~Q0_5 ~Q2_5 
+~Q0_5 ~Q3_5 
+~Q0_5 ~Q4_5 
+~Q1_5 ~Q2_5
+~Q1_5 ~Q3_5
+~Q1_5 ~Q4_5
+~Q2_5 ~Q3_5
+~Q2_5 ~Q4_5
+~Q3_5 ~Q4_5
+
+# No more than one state at step 6
+~Q0_6 ~Q1_6 
+~Q0_6 ~Q2_6 
+~Q0_6 ~Q3_6 
+~Q0_6 ~Q4_6 
+~Q1_6 ~Q2_6
+~Q1_6 ~Q3_6
+~Q1_6 ~Q4_6
+~Q2_6 ~Q3_6
+~Q2_6 ~Q4_6
+~Q3_6 ~Q4_6
+
+# Transition ("", 1 -> "1")
+~Q0_0 ~P0 Q1_1
+~Q0_1 ~P1 Q1_2
+~Q0_2 ~P2 Q1_3
+~Q0_3 ~P3 Q1_4
+~Q0_4 ~P4 Q1_5
+~Q0_5 ~P5 Q1_6
+
+# Transition ("", 0 -> "")
+~Q0_0 P0 Q0_1
+~Q0_1 P1 Q0_2
+~Q0_2 P2 Q0_3
+~Q0_3 P3 Q0_4
+~Q0_4 P4 Q0_5
+~Q0_5 P5 Q0_6
+
+# Transition ("1", 1 -> "")
+~Q1_0 ~P0 Q0_1
+~Q1_1 ~P1 Q0_2
+~Q1_2 ~P2 Q0_3
+~Q1_3 ~P3 Q0_4
+~Q1_4 ~P4 Q0_5
+~Q1_5 ~P5 Q0_6
+
+# Transition ("1", 0 -> "10")
+~Q1_0 P0 Q2_1
+~Q1_1 P1 Q2_2
+~Q1_2 P2 Q2_3
+~Q1_3 P3 Q2_4
+~Q1_4 P4 Q2_5
+~Q1_5 P5 Q2_6
+
+# Transition ("10", 1 -> "101")
+~Q2_0 ~P0 Q3_1
+~Q2_1 ~P1 Q3_2
+~Q2_2 ~P2 Q3_3
+~Q2_3 ~P3 Q3_4
+~Q2_4 ~P4 Q3_5
+~Q2_5 ~P5 Q3_6
+
+# Transition ("10", 0 -> "")
+~Q2_0 P0 Q0_1
+~Q2_1 P1 Q0_2
+~Q2_2 P2 Q0_3
+~Q2_3 P3 Q0_4
+~Q2_4 P4 Q0_5
+~Q2_5 P5 Q0_6
+
+# Transition ("101", 1 -> "1011")
+~Q3_0 ~P0 Q4_1
+~Q3_1 ~P1 Q4_2
+~Q3_2 ~P2 Q4_3
+~Q3_3 ~P3 Q4_4
+~Q3_4 ~P4 Q4_5
+~Q3_5 ~P5 Q4_6
+
+# Transition ("101", 0 -> "")
+~Q3_0 P0 Q0_1
+~Q3_1 P1 Q0_2
+~Q3_2 P2 Q0_3
+~Q3_3 P3 Q0_4
+~Q3_4 P4 Q0_5
+~Q3_5 P5 Q0_6
+
+# Transition ("1011", 1 -> "")
+~Q4_0 ~P0 Q0_1
+~Q4_1 ~P1 Q0_2
+~Q4_2 ~P2 Q0_3
+~Q4_3 ~P3 Q0_4
+~Q4_4 ~P4 Q0_5
+~Q4_5 ~P5 Q0_6
+
+# Transition ("1011", 0 -> "")
+~Q4_0 P0 Q0_1
+~Q4_1 P1 Q0_2
+~Q4_2 P2 Q0_3
+~Q4_3 P3 Q0_4
+~Q4_4 P4 Q0_5
+~Q4_5 P5 Q0_6
+
+# Initial State
+Q0_0
+
+# Accepted States
+Q4_4 Q4_5 Q4_6
